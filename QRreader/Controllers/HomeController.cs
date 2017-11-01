@@ -10,6 +10,18 @@ namespace QRreader.Controllers
     {
         public ActionResult Index()
         {
+            IBarcodeReader reader = new BarcodeReader();
+            // load a bitmap
+            var barcodeBitmap = (Bitmap)Bitmap.LoadFrom("C:\\sample-barcode-image.png");
+            // detect and decode the barcode inside the bitmap
+            var result = reader.Decode(barcodeBitmap);
+            // do something with the result
+            if (result != null)
+            {
+                txtDecoderType.Text = result.BarcodeFormat.ToString();
+                txtDecoderContent.Text = result.Text;
+            }
+
             return View();
         }
 
