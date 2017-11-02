@@ -1,7 +1,12 @@
-﻿
+﻿@model QRreader.Models.ImageFile
 @{
     ViewBag.Title = "Display";
 }
 
 <h2>Display</h2>
 
+@Html.DisplayFor(modelItem => Model.ImagePath)
+<br />
+@Html.DisplayFor(modelItem => Model.BarcodeText)
+<br />
+@Html.DisplayFor(modelItem => Model.BarcodeFormat)
